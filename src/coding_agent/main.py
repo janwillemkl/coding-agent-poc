@@ -4,7 +4,12 @@ from pydantic_ai import Agent
 from pydantic_ai.models.openai import OpenAIChatModel
 from pydantic_ai.providers.openai import OpenAIProvider
 
-from coding_agent.tools import read_file, search_files, write_file
+from coding_agent.tools import (
+    delete_file,
+    read_file,
+    search_files,
+    write_file,
+)
 
 
 def _getenv(key: str) -> str:
@@ -46,7 +51,7 @@ def main() -> None:
     agent = Agent(
         model=model,
         instructions=_INSTRUCTIONS,
-        tools=[read_file, write_file, search_files],
+        tools=[read_file, write_file, search_files, delete_file],
     )
 
     agent.to_cli_sync(prog_name=_AGENT_NAME)

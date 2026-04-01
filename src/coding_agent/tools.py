@@ -58,3 +58,14 @@ def search_files(pattern: str) -> list[str]:
         for p in matches
         if not any(part in ignore_dirs for part in p.parts)
     ]
+
+
+def delete_file(path: str) -> None:
+    """Delete a file.
+
+    Parameters
+    ----------
+    path : str
+        The (relative) path to the file.
+    """
+    _path_sandbox(path).unlink()
