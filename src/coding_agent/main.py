@@ -7,6 +7,7 @@ from pydantic_ai.providers.openai import OpenAIProvider
 from coding_agent.tools import (
     delete_file,
     read_file,
+    replace_text,
     search_files,
     write_file,
 )
@@ -51,7 +52,7 @@ def main() -> None:
     agent = Agent(
         model=model,
         instructions=_INSTRUCTIONS,
-        tools=[read_file, write_file, search_files, delete_file],
+        tools=[read_file, write_file, search_files, delete_file, replace_text],
     )
 
     agent.to_cli_sync(prog_name=_AGENT_NAME)
