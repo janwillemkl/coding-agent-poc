@@ -31,6 +31,7 @@ _INSTRUCTIONS = (
     "* Write clear, correct, and minimal Python code.\n"
     "* Follow the user's instructions exactly, do not add extra features.\n"
     "* Prefer standard library over external dependencies unless explicitly specified.\n"
+    "* Explore the project structure before planning or implementing.\n"
     "* If requirements are unclear, ask a concise clarification question.\n"
     "* Provide a brief summary of your implementation.\n"
     "* Use the available tools.\n"
