@@ -50,6 +50,11 @@ def search_files(pattern: str) -> list[str]:
     list[str]
         A list of relative paths matching the pattern.
     """
+    ignore_dirs = {".venv", "__pycache__"}
     sandbox_root = _path_sandbox("")
     matches = sandbox_root.glob(pattern)
-    return [str(p.relative_to(sandbox_root)) for p in matches]
+    return [
+        str(p.relative_to(sandbox_root))
+        for p in matches
+        if not any(part in ignore_dirs for part in p.parts)
+    ]
